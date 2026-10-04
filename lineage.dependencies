@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_device_rockchip_rk35xx-common",
+    "target_path": "device/rockchip/rk35xx-common"
+  }
+]

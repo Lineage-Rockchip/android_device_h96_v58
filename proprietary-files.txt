@@ -1,0 +1,16 @@
+## Board-specific blobs for the H96 Max V58. Everything generic lives in
+## device/rockchip/rk35xx-common/proprietary-files.txt. These are pinned: the
+## main extraction source (the RK3576 MS dump) does not ship them, so
+## extract-utils restores them from vendor/h96/v58 by hash.
+
+## AP6275P (BCM43752, PCIe) Wi-Fi: firmware, CLM blob and module nvram
+## Pinned from the Khadas Edge-2L dump (ANDROID14_RKR8): firmware 35.387.23.273
+## of 2025-01-23, the release matching bcmdhd 101.10.591.x. The stock ROM has
+## 35.387.23.146 of 2022. dhd_config picks the names by chip revision.
+vendor/etc/firmware/fw_bcm43752a2_pcie_ag.bin|5a74fe860be57b2cea51f8668b4a6f39c05dd7ed
+vendor/etc/firmware/fw_bcm43752a2_pcie_ag_apsta.bin|5a74fe860be57b2cea51f8668b4a6f39c05dd7ed
+vendor/etc/firmware/clm_bcm43752a2_pcie_ag.blob|d350ab79acfb74105a9ca2b1bcdf12b75f5ef102
+vendor/etc/firmware/nvram_ap6275p.txt|da87b45f995552791f5309be52fc12319f1dd4f1
+
+## The BCM4362A2 Bluetooth patch (1100.1189) comes from the common tree; the
+## stock ROM's is 1082.1149.
