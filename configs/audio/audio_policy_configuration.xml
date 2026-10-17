@@ -19,12 +19,11 @@
 
     <modules>
         <module name="primary" halVersion="2.0">
-            <!-- HDMI is attached: LineageOS lacks RkAudioSettingService, which marks it connected on stock. The audio HAL has no entry for the ES8311 card, so Speaker goes nowhere, as on stock. -->
+            <!-- HDMI Out is connected on hotplug by WiredAccessoryManager's extcon observer. Speaker (ES8311) has no audio HAL entry, as on stock. -->
             <attachedDevices>
                 <item>Speaker</item>
-                <item>HDMI Out</item>
             </attachedDevices>
-            <defaultOutputDevice>HDMI Out</defaultOutputDevice>
+            <defaultOutputDevice>Speaker</defaultOutputDevice>
             <mixPorts>
                 <mixPort name="primary output" role="source" flags="AUDIO_OUTPUT_FLAG_PRIMARY">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
@@ -41,26 +40,7 @@
                              samplingRates="32000 44100 48000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
-                <mixPort name="hdmi_bitstream" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">
-                    <profile name="ac3" format="AUDIO_FORMAT_AC3"
-                             samplingRates="32000 44100 48000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1"/>
-                    <profile name="eac3" format="AUDIO_FORMAT_E_AC3"
-                             samplingRates="16000 22050 24000 32000 44100 48000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                    <profile name="eac3-joc" format="AUDIO_FORMAT_E_AC3_JOC"
-                             samplingRates="16000 22050 24000 32000 44100 48000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_3POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_SURROUND AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                    <profile name="dts" format="AUDIO_FORMAT_DTS"
-                             samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_BACK AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_5POINT1"/>
-                    <profile name="dtshd" format="AUDIO_FORMAT_DTS_HD"
-                             samplingRates="22050 24000 32000 44100 48000 88200 96000 192000"
-                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_QUAD_BACK AUDIO_CHANNEL_OUT_QUAD_SIDE AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                    <profile name="iec" format="AUDIO_FORMAT_IEC61937"
-                             samplingRates="8000 11025 16000 22050 24000 32000 44100 48000 128000 176400 192000"
-                             channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
-                </mixPort>
+                <mixPort name="hdmi_bitstream" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT"/>
                 <mixPort name="primary input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000"
