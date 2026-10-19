@@ -32,7 +32,6 @@ odm     /odm      ext4 ro,barrier=1 wait,logical,first_stage_mount
 # for ext4
 #/dev/block/by-name/userdata    /data      ext4    discard,noatime,nosuid,nodev,inlinecrypt,noauto_da_alloc,data=ordered,user_xattr,barrier=1   latemount,wait,formattable,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,quota,reservedsize=128M,checkpoint=fs
 /dev/block/by-name/metadata /metadata ext4 nodev,noatime,nosuid,discard,sync wait,check,formattable,first_stage_mount
-/dev/block/by-name/frp /frp emmc defaults defaults
 /dev/block/by-name/uboot /uboot emmc defaults defaults
 /dev/block/by-name/recovery /recovery emmc defaults defaults
 /dev/block/by-name/vbmeta /vbmeta emmc defaults defaults

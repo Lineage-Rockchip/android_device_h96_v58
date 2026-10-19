@@ -7,6 +7,9 @@
 ## TEE
 TARGET_HAS_TEE := true
 
+## No frp partition in the stock parameter.txt
+TARGET_HAS_FRP_PARTITION := false
+
 ## Infrared remote
 # The input device is the PWM node the Rockchip IR driver binds to (pwm3, 'fd8b0030.pwm').
 PRODUCT_COPY_FILES += \
